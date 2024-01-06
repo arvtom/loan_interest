@@ -47,6 +47,10 @@ all: $(ALL_EXAMPLES)
 	@echo Compiling $@
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
+loan_interest: loan_interest.o
+	@echo Linking $@
+	$(CXX) -o $@ $^ $(LDFLAGS)
+
 example-misc: example-misc.o
 	@echo Linking $@
 	$(CXX) -o $@ $^ $(LDFLAGS)
