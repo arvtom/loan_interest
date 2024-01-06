@@ -1,5 +1,24 @@
 #include "loan_interest.hpp"
 
+/* Conditions:
+    Real estate price:                  100 000 Eur
+    Initial contribution:               15 000 Eur
+    Credit period:                      30 years
+    Bank interest:                      1.8 %
+    EURIBOR:                            3.544 %
+    Payment method:                     Linnear (lower remaining credit to return =
+                                            lower monthly interest payment)
+    Credit sum:                         85 000 Eur
+    Yearly interest (inc bank taxes):   5.640 %
+
+    The rest of the data is in credit_example.pdf
+*/
+
+int main() 
+{
+    demo_png();
+}
+
 void demo_png() 
 {
     Gnuplot gp;
@@ -35,9 +54,4 @@ void demo_png()
     gp << "plot '-' with lines title 'cubic', '-' with points title 'circle'\n";
     gp.send1d(xy_pts_A);
     gp.send1d(xy_pts_B);
-}
-
-int main() 
-{
-    demo_png();
 }
