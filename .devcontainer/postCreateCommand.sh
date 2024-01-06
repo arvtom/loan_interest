@@ -1,3 +1,6 @@
+git config --global user.email "tomkusarvydas@gmail.com"
+git config --global user.name "arvtom"
+
 apt-get update
 apt-get -y install git g++ python3 pip nano gnuplot libgnuplot-iostream-dev
 pip install matplotlib numpy
