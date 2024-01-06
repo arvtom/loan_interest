@@ -1,4 +1,4 @@
-CXXFLAGS+=--std=c++20 -Wall -Wextra -O0 -g -D_GLIBCXX_DEBUG
+CXXFLAGS+=--std=c++23 -Wall -Wextra -O0 -g -D_GLIBCXX_DEBUG
 CXXFLAGS+=-fdiagnostics-color=auto
 LDFLAGS+=-lutil -lboost_iostreams -lboost_system -lboost_filesystem
 

@@ -6,12 +6,17 @@ int main()
 
     const std::chrono::time_point now{std::chrono::system_clock::now()};
  
-    const std::chrono::year_month_day ymd{std::chrono::floor<std::chrono::days>(now)};
+    std::chrono::year_month_day ymd{std::chrono::floor<std::chrono::days>(now)};
  
     std::cout << "Current Year: " << static_cast<int>(ymd.year()) << ", "
                  "Month: " << static_cast<unsigned>(ymd.month()) << ", "
-                 "Day: " << static_cast<unsigned>(ymd.day()) << "\n"
-                 /*"ymd: " << ymd << '\n'*/;
+                 "Day: " << static_cast<unsigned>(ymd.day()) << "\n";
+
+    ymd += std::chrono::years(30);
+
+    std::cout << "Current Year: " << static_cast<int>(ymd.year()) << ", "
+                 "Month: " << static_cast<unsigned>(ymd.month()) << ", "
+                 "Day: " << static_cast<unsigned>(ymd.day()) << "\n";
 }
 
 // void demo_png() 
