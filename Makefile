@@ -1,4 +1,4 @@
-CXXFLAGS+=--std=c++17 -Wall -Wextra -O0 -g -D_GLIBCXX_DEBUG
+CXXFLAGS+=--std=c++20 -Wall -Wextra -O0 -g -D_GLIBCXX_DEBUG
 CXXFLAGS+=-fdiagnostics-color=auto
 LDFLAGS+=-lutil -lboost_iostreams -lboost_system -lboost_filesystem
 
@@ -9,6 +9,7 @@ LDFLAGS+=-lutil -lboost_iostreams -lboost_system -lboost_filesystem
 loan_interest: loan_interest.o
 	@echo Linking $@
 	$(CXX) -o $@ $^ $(LDFLAGS)
+	@printf "\nmake all finished\n\n"
 
 clean:
 	rm -f *.o
@@ -18,4 +19,4 @@ clean:
 	rm -f *.exe *.obj
 	# files created by demo scripts
 	rm -f my_graph_*.png external_binary.dat external_binary.gnu external_text.dat external_text.gnu inline_binary.gnu inline_text.gnu
-
+	@printf "\nmake clean finished\n\n"

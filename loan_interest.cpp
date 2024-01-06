@@ -1,22 +1,17 @@
 #include "loan_interest.hpp"
 
-/* Conditions:
-    Real estate price:                  100 000 Eur
-    Initial contribution:               15 000 Eur
-    Credit period:                      30 years
-    Bank interest:                      1.8 %
-    EURIBOR:                            3.544 %
-    Payment method:                     Linnear (lower remaining credit to return =
-                                            lower monthly interest payment)
-    Credit sum:                         85 000 Eur
-    Yearly interest (inc bank taxes):   5.640 %
-
-    The rest of the data is in credit_example.pdf
-*/
-
 int main() 
 {
-    demo_png();
+    // demo_png();
+
+    const std::chrono::time_point now{std::chrono::system_clock::now()};
+ 
+    const std::chrono::year_month_day ymd{std::chrono::floor<std::chrono::days>(now)};
+ 
+    std::cout << "Current Year: " << static_cast<int>(ymd.year()) << ", "
+                 "Month: " << static_cast<unsigned>(ymd.month()) << ", "
+                 "Day: " << static_cast<unsigned>(ymd.day()) << "\n"
+                 "ymd: " << ymd << '\n';
 }
 
 void demo_png() 
