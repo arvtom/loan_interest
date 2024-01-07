@@ -8,22 +8,12 @@
 #include <iostream>
 
 /* Conditions:
-    Real estate price:                  100 000 Eur
-    Initial contribution:               15 000 Eur
-    Credit period:                      30 years
-    Bank interest:                      1.8 %
-    EURIBOR:                            3.544 %
-    Payment method:                     Linnear (lower remaining credit to return =
-                                            lower monthly interest payment)
-    Credit sum:                         85 000 Eur
-    Yearly interest (inc bank taxes):   5.640 %
-
-    The rest of the data is in credit_example.pdf
+    The rest of the data is in credit_example_1y.pdf
 */
 
-// #define CREDIT_SUM      85000.0     /* Eur */
-// #define INTEREST        5.640       /* % */
-// #define CREDIT_PERIOD   30          /* years */
+#define CREDIT_SUM              85000.0     /* Eur */
+#define INTEREST                6.930       /* % */
+#define CREDIT_PERIOD_YEARS     1          /* years */
 
 // // Warn about use of deprecated functions.
 // #define GNUPLOT_DEPRECATE_WARN
