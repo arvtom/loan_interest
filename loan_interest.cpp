@@ -4,17 +4,20 @@ int main()
 {
     // demo_png();
 
-    const std::chrono::time_point now{std::chrono::system_clock::now()};
+    std::chrono::time_point now{std::chrono::system_clock::now()};
     std::chrono::year_month_day ymd_0{std::chrono::floor<std::chrono::days>(now)};
     std::chrono::year_month_day ymd_1{std::chrono::floor<std::chrono::days>(now)};
 
     ymd_1 += std::chrono::years(CREDIT_PERIOD_YEARS);
 
-    const auto credit_period_days = 
+    double credit_period_days = 
         (std::chrono::sys_days{ymd_1} - std::chrono::sys_days{ymd_0}).count();
-    std::cout << "credit_period_days=" << credit_period_days << "\n";
+    double total_interest = CREDIT / 100 * INTEREST;
+    double total_payments = CREDIT + INTEREST;
 
-    
+    fprintf(stdout, "credit_period_days=%.2f Eur\n", credit_period_days);
+    fprintf(stdout, "total_interest=%.2f Eur\n", total_interest);
+    fprintf(stdout, "total_payments=%.2f Eur\n", total_payments);
 }
 
 // void demo_png() 

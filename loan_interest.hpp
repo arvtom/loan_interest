@@ -11,7 +11,7 @@
     The rest of the data is in credit_example_1y.pdf
 */
 
-#define CREDIT_SUM              85000.0     /* Eur */
+#define CREDIT                  85000.0     /* Eur */
 #define INTEREST                6.930       /* % */
 #define CREDIT_PERIOD_YEARS     1          /* years */
 
