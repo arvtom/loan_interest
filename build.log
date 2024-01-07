@@ -1,0 +1,16 @@
+rm -f *.o
+rm -rf unittest-errors unittest-output
+rm -f  
+# Windows compilation
+rm -f *.exe *.obj
+# files created by demo scripts
+rm -f my_graph_*.png external_binary.dat external_binary.gnu external_text.dat external_text.gnu inline_binary.gnu inline_text.gnu
+
+make clean finished
+
+g++ --std=c++20 -Wall -Wextra -O0 -g -D_GLIBCXX_DEBUG -fdiagnostics-color=auto   -c -o loan_interest.o loan_interest.cpp
+Linking loan_interest
+g++ -o loan_interest loan_interest.o -lutil -lboost_iostreams -lboost_system -lboost_filesystem
+
+make all finished
+

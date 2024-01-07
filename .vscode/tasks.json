@@ -5,8 +5,7 @@
         "label": "Build",
         "type": "shell",
         "command": [
-            "make clean &&",
-            "make loan_interest"
+            "bash build.sh"
             ],
         "options": {
           "cwd": "${workspaceFolder}"
@@ -20,7 +19,7 @@
         "label": "Run",
         "type": "shell",
         "command": [
-            "./loan_interest"
+              "bash run.sh"
             ],
         "options": {
           "cwd": "${workspaceFolder}"
