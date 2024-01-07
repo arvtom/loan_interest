@@ -8,16 +8,53 @@ int main()
     std::chrono::year_month_day ymd_0{std::chrono::floor<std::chrono::days>(now)};
     std::chrono::year_month_day ymd_1{std::chrono::floor<std::chrono::days>(now)};
 
+    std::chrono::year_month_day last_ymd{std::chrono::floor<std::chrono::days>(now)};
+    std::chrono::year_month_day this_ymd{std::chrono::floor<std::chrono::days>(now)};
+    std::vector<double> days;
+    std::vector<double> interests;
+
     ymd_1 += std::chrono::years(CREDIT_PERIOD_YEARS);
 
     double credit_period_days = 
         (std::chrono::sys_days{ymd_1} - std::chrono::sys_days{ymd_0}).count();
-    double total_interest = CREDIT / 100 * INTEREST;
+
+    /* Find interest for each month */
+    for (uint16_t month = 0u; month < 12u; month++)
+    {
+        this_ymd += std::chrono::months(1);
+
+        days.push_back(
+            (std::chrono::sys_days{this_ymd} - std::chrono::sys_days{last_ymd}).count()
+        );
+
+        interests.push_back(
+            CREDIT / credit_period_days * days.back() * INTEREST
+        );
+
+        last_ymd = this_ymd;
+    }
+
+    double total_interest = CREDIT / 100.0 * INTEREST;
     double total_payments = CREDIT + INTEREST;
 
     fprintf(stdout, "credit_period_days=%.2f Eur\n", credit_period_days);
     fprintf(stdout, "total_interest=%.2f Eur\n", total_interest);
     fprintf(stdout, "total_payments=%.2f Eur\n", total_payments);
+
+    for (uint16_t month = 0u; month < 12u; month++)
+    {
+        std::cout 
+            << "days=" << days.at(month)
+            << ", interests=" << interests.at(month) << "\n"
+        ;
+    }
+
+    //     for (double i: days)
+    // {
+    //     std::cout 
+    //         << "days=" << i << "\n"
+    //         << "interest=" << i << "\n"
+    // }
 }
 
 // void demo_png() 
